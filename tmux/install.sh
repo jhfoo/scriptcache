@@ -1,1 +1,1 @@
-curl https://raw.githubusercontent.com/jhfoo/scriptcache/master/.tmux.conf ~
+curl https://raw.githubusercontent.com/jhfoo/scriptcache/master/tmux/.tmux.conf ~
