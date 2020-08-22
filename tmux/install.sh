@@ -1,0 +1,1 @@
+curl https://raw.githubusercontent.com/jhfoo/scriptcache/master/.tmux.conf ~
