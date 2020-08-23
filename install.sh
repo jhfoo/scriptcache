@@ -4,4 +4,4 @@ curl https://raw.githubusercontent.com/jhfoo/scriptcache/master/tmux/install.sh 
 echo Installing .zshrc >&1
 cd ~
 curl -O https://raw.githubusercontent.com/jhfoo/scriptcache/master/.zshrc
-cat .zshrc | zsh
+cat .zshrc | source /dev/stdin
