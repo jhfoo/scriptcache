@@ -1,3 +1,5 @@
+RPROMPT='%T'                                                    
+PROMPT='%B%n@%m%b %2~ %#'
 alias jill='ssh jhfoo@192.168.1.5'
 alias jack='ssh jhfoo@192.168.1.4'
 alias hill='ssh 192.168.1.6'
