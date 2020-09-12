@@ -3,7 +3,8 @@ Collection of scripts
 
 ## Install
 ```
-%curl http://url.kungfoo.info/myinstallscript | zsh 
+# NOTE: curl doesn't seem to work on redirects
+%wget -O - http://url.kungfoo.info/myinstallscript | zsh 
 ```
 or
 ```
