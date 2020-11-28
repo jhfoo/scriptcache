@@ -14,3 +14,8 @@ alias grumpy='ssh pi@192.168.50.21'
 alias ntfs='sudo ntfs-3g /dev/da1s1 /ntfs -o rw,uid=1001,gid=1001'
 alias siocage='sudo iocage $@'
 alias sdocker='sudo docker $@'
+
+FILE_ZSHRC_EXT='.zshrc-ext'
+if [[ -f $FILE_ZSHRC_EXT ]]; then
+  source $FILE_ZSHRC_EXT
+fi
