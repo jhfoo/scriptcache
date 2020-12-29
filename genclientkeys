@@ -1,0 +1,40 @@
+#!/usr/local/bin/zsh
+
+if [ "$#" -ne 2 ]
+then
+  echo Usage:
+  echo "  genclientkeys <name> <ip>/<classless subnet>"
+  echo Eg:
+  echo "  genclientkeys laptop 192.168.87.100/24"
+  exit -1
+fi
+
+PRIVKEY="$1.priv"
+PUBKEY="$1.pub"
+CLIENT_FILE="$1.conf"
+CLIENT_ALLOWEDIPS="192.168.0.0/16"
+SERVER_PUBKEY=$(cat "/usr/local/etc/wireguard/server.pub")
+SERVER_PUB_IP=spectrum.kungfoo.info
+SERVER_WG_PORT=51821
+DNS=8.8.8.8
+
+wg genkey > $PRIVKEY
+echo $PRIVKEY created
+CLIENT_PRIVKEY=$(cat $PRIVKEY)
+
+wg pubkey < $PRIVKEY > $PUBKEY
+echo $PUBKEY created
+
+cat <<EOF > $CLIENT_FILE
+[Interface]
+Address = $2
+PrivateKey = $CLIENT_PRIVKEY
+DNS = $DNS
+
+[Peer]
+PublicKey = $SERVER_PUBKEY
+AllowedIPs = $CLIENT_ALLOWEDIPS
+Endpoint = $SERVER_PUB_IP:$SERVER_WG_PORT
+EOF
+
+echo "$(cat $CLIENT_FILE)"
